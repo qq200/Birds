@@ -4,7 +4,6 @@ $original_mesage='i am php developer';
 // $c++;
 // print $c;
 print "original: ".$original_mesage."<br>";
-
 //encoding : se schimba literile cu una inainte
 for($i=0; $i<strlen($original_mesage); $i++){
     $c=$original_mesage[$i];
@@ -13,10 +12,13 @@ for($i=0; $i<strlen($original_mesage); $i++){
 }
 print "shifar: ".$original_mesage."<br>";
 // decodare
-for($i=0; $i<strlen($original_mesage); $i++){
-    $c=$original_mesage[$i];
-    // $c--;   Pe acasa cu codul simbolului -ord
-    $original_mesage[$i]=$c;
+print "<b>decodat: </b>";
+for($i=0; $i<strlen($original_mesage); $i++){    
+    $cod=ord($original_mesage[$i]);
+    if($cod!=32){
+        print chr($cod-1);
+    }else{
+        print chr($cod);
+    }
 }
-print "decodat: ".$original_mesage."<br>";
 ?>
