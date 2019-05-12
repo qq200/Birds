@@ -10,18 +10,17 @@
     $food=$_GET['food']??'';
     $portion=$_GET['portion']??'';
     $t=$portion;
-
-
+    
 ?>
-
 <form >
     <select name="food">
     <?php
         foreach($menu as $name => $price){
-            print "<option value='$name'>$name ($price MDL)</option>  "; 
-            //ACASA: prin printf() sa se afiseze 000.00 total pe acasa
+            $p=sprintf("%01.2f", $price) ;
+            print "<option value='$name'>$name ($p MDL)</option>  ";            
+            $t_cost=$t+$price;            
         }
-
+        
     ?>          
     </select>
     <select name="portion">
@@ -31,8 +30,5 @@
     </select>
     <button>ORDER</button>
 </form>
-
-
-<h2><?php print "you've ordered $portion portion of '$food' ! TOTAL Cost is: ($t)" ?></h2>
-
+<h2><?php print "You've ordered $portion portion of '$food' ! TOTAL COST is: ($t_cost) MDL" ?></h2>
 
